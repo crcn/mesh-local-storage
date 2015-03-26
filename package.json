@@ -1,10 +1,10 @@
 {
   "name": "crudlet-local-storage",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "local storage adapter (offline-mode) for crudlet",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "gulp lint test"
+    "test": "gulp lint test-coveralls"
   },
   "repository": {
     "type": "git",

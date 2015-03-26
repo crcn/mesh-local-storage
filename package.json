@@ -1,7 +1,7 @@
 {
   "name": "crudlet-local-storage",
-  "version": "0.0.1",
-  "description": "```javascript var caplet  = require(\"caplet\"); var crudlet = require(\"crudlet\"); var localdb = require(\"crudlet-localdb\"); var http    = require(\"crudlet-http\"); var pubnub  = require(\"crudlet-pubnub\"); var xtend   = require(\"xtend/mutable\"); var ok      = require(\"okay\");",
+  "version": "0.0.2",
+  "description": "local storage adapter (offline-mode) for crudlet",
   "main": "./lib/index.js",
   "scripts": {
     "test": "gulp lint test"
@@ -31,6 +31,7 @@
     "gulp-uglify": "^1.1.0",
     "karma": "^0.12.31",
     "protoclass": "0.0.6",
+    "sinon": "^1.14.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^3.6.0"

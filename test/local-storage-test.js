@@ -16,7 +16,7 @@ describe(__filename + "#", function() {
   it("can add local-storage specific options", function(next) {
     var db   = localStorageDatabase({ collection: "words", storageKey: "abba" });
     var setStub = sinon.spy(db.target, "insert");
-    crudlet.run(db, "insert", { localStorage: { a: 1}}).on("data", function(){}).on("end", function() {
+    db("insert", { localStorage: { a: 1}}).on("data", function(){}).on("end", function() {
       expect(setStub.callCount).to.be(1);
       expect(setStub.firstCall.args[1].a).to.be(1);
       next();
@@ -26,7 +26,7 @@ describe(__filename + "#", function() {
   it("saves when inserting", function(next) {
     var db   = localStorageDatabase({collection:"people"});
     var setStub = sinon.spy(db.target.store, "set");
-    crudlet.run(db, "insert", { data: { name: "abba" }}).on("data", function(){}).on("end", function() {
+    db("insert", { data: { name: "abba" }}).on("data", function(){}).on("end", function() {
       expect(setStub.callCount).to.be(1);
       setStub.restore();
       next()
@@ -35,34 +35,42 @@ describe(__filename + "#", function() {
 
   it("saves when updating", function(next) {
     var db   = localStorageDatabase({collection:"people"});
-    var stream = crudlet.stream(db);
-    stream.end(crudlet.operation("insert", { data: { name: "abba" }}));
+    var stream = crudlet.open(db);
 
     var setStub = sinon.stub(db.target.store, "set");
-    stream = crudlet.stream(db);
-    stream.on("data", function() {
-      expect(setStub.callCount).to.be(1);
-      setStub.restore();
-      next()
-    });
+    stream.on("data", function(){});
+    stream.on("end", function() {
 
-    stream.end(crudlet.operation("update", { query: { name: "abba" }, data: { name: "baab" }}));
+      stream = crudlet.open(db);
+      stream.on("data", function() {
+        expect(setStub.callCount).to.be(2);
+        setStub.restore();
+        next()
+      });
+
+      stream.end(crudlet.operation("update", { query: { name: "abba" }, data: { name: "baab" }}));
+    })
+    stream.end(crudlet.operation("insert", { data: { name: "abba" }}));
   });
 
   it("saves when removing", function(next) {
     var db   = localStorageDatabase({collection:"people"});
-    var stream = crudlet.stream(db);
-    stream.write(crudlet.operation("insert", { data: { name: "abba" }}));
+    var stream = crudlet.open(db);
 
     var setStub = sinon.stub(db.target.store, "set");
-    stream = crudlet.stream(db);
-    stream.on("data", function() {
-      expect(setStub.callCount).to.be(1);
-      setStub.restore();
-      next();
-    });
+    stream.on("data", function(){});
+    stream.on("end", function() {
 
-    stream.end(crudlet.operation("remove", { query: { name: "abba" }}));
+      stream = crudlet.open(db);
+      stream.on("data", function() {
+        expect(setStub.callCount).to.be(2);
+        setStub.restore();
+        next()
+      });
+
+      stream.end(crudlet.operation("remove", { query: { name: "abba" }}));
+    })
+    stream.end(crudlet.operation("insert", { data: { name: "abba" }}));
   });
 
   it("can specify a custom storage object", function(next) {
@@ -78,7 +86,7 @@ describe(__filename + "#", function() {
     } });
     expect(i).to.be(1);
 
-    crudlet.run(db, "insert", {}).on("data", function() {
+    db("insert", {}).on("data", function() {
       expect(j).to.be(1);
       next();
     });

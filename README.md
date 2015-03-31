@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/crcn/crudlet-local-storage.svg)](https://travis-ci.org/crcn/crudlet-local-storage) [![Coverage Status](https://coveralls.io/repos/crcn/crudlet-local-storage/badge.svg?branch=master)](https://coveralls.io/r/crcn/crudlet-local-storage?branch=master) [![Dependency Status](https://david-dm.org/crcn/crudlet-local-storage.svg)](https://david-dm.org/crcn/crudlet-local-storage) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/crcn/crudlet-local-storage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.org/crcn/crudlet-local-storage.svg)](https://travis-ci.org/crcn/crudlet-local-storage) [![Coverage Status](https://coveralls.io/repos/crcn/crudlet-local-storage/badge.svg?branch=master)](https://coveralls.io/r/crcn/crudlet-local-storage?branch=master) [![Dependency Status](https://david-dm.org/crcn/crudlet-local-storage.svg)](https://david-dm.org/crcn/crudlet-local-storage)
 
 This module is a local storage database adapter for [crudlet](https://github.com/crcn/crudlet.js) - a library that makes it easy to persist data through multiple transports.
 

@@ -1,12 +1,12 @@
-[![Build Status](https://travis-ci.org/crcn/crudlet-local-storage.svg)](https://travis-ci.org/crcn/crudlet-local-storage) [![Coverage Status](https://coveralls.io/repos/crcn/crudlet-local-storage/badge.svg?branch=master)](https://coveralls.io/r/crcn/crudlet-local-storage?branch=master) [![Dependency Status](https://david-dm.org/crcn/crudlet-local-storage.svg)](https://david-dm.org/crcn/crudlet-local-storage)
+[![Build Status](https://travis-ci.org/mojo-js/crudlet-local-storage.svg)](https://travis-ci.org/mojo-js/crudlet-local-storage) [![Coverage Status](https://coveralls.io/repos/mojo-js/crudlet-local-storage/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/crudlet-local-storage?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/crudlet-local-storage.svg)](https://david-dm.org/mojo-js/crudlet-local-storage)
 
-This module is a local storage database adapter for [crudlet](https://github.com/crcn/crudlet.js) - a library that makes it easy to persist data through multiple transports.
+This module is a local storage database adapter for [crudlet](https://github.com/mojo-js/crudlet.js) - a library that makes it easy to persist data through multiple transports.
 
 #### Features
 
 - offline-mode - enable users to browse your application without an API (assuming there's local data)
 - faster initial load times - great for mobile devices
-- can be used with other database transports such as [crudlet-http](https://github.com/crcn/crudlet-http)
+- can be used with other database transports such as [crudlet-http](https://github.com/mojo-js/crudlet-http)
 - cascades operations to other transports
 
 

@@ -1,31 +1,31 @@
-[![Build Status](https://travis-ci.org/mojo-js/crudlet-local-storage.svg)](https://travis-ci.org/mojo-js/crudlet-local-storage) [![Coverage Status](https://coveralls.io/repos/mojo-js/crudlet-local-storage/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/crudlet-local-storage?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/crudlet-local-storage.svg)](https://david-dm.org/mojo-js/crudlet-local-storage)
+[![Build Status](https://travis-ci.org/mojo-js/mesh-local-storage.svg)](https://travis-ci.org/mojo-js/mesh-local-storage) [![Coverage Status](https://coveralls.io/repos/mojo-js/mesh-local-storage/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/mesh-local-storage?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/mesh-local-storage.svg)](https://david-dm.org/mojo-js/mesh-local-storage)
 
-This module is a local storage database adapter for [crudlet](https://github.com/mojo-js/crudlet.js) - a library that makes it easy to persist data through multiple transports.
+This module is a local storage database adapter for [mesh](https://github.com/mojo-js/mesh.js) - a library that makes it easy to persist data through multiple transports.
 
 #### Features
 
 - offline-mode - enable users to browse your application without an API (assuming there's local data)
 - faster initial load times - great for mobile devices
-- can be used with other database transports such as [crudlet-http](https://github.com/mojo-js/crudlet-http)
+- can be used with other database transports such as [mesh-http](https://github.com/mojo-js/mesh-http)
 - cascades operations to other transports
 
 
 #### installation
 
 ```
-npm install crudlet-local-storage
+npm install mesh-local-storage
 ```
 
 ```javascript
-var crudlet = require("crudlet");
-var localdb = require("crudlet-local-storage");
+var mesh = require("mesh");
+var localdb = require("mesh-local-storage");
 
-var db = crudlet(localdb());
+var db = mesh(localdb());
 ```
 
 #### db localdb(options)
 
-creates a local crudelt database
+creates a local meshelt database
 
 - `options` - options for the local db
   - `storageKey` - storage key to use
@@ -76,6 +76,3 @@ load options:
 
 - `query` - mongodb search query
 - `multi` - TRUE if you want to load multiple items (one by default)
-
-
-
